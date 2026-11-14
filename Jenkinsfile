@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Create Server') {
             steps {
-                echo 'My first Jenkins Build is Successful!'
+                sh 'terraform init'
+                sh 'terraform apply -auto-approve'
             }
         }
     }
