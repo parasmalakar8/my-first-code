@@ -3,9 +3,13 @@ pipeline {
     stages {
         stage('Create Server') {
             steps {
-                sh 'terraform init'
-                sh 'terraform apply -auto-approve'
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
+                    sh 'terraform init'
+                    sh 'terraform apply -auto-approve'
+                }
             }
         }
+    }
+}
     }
 }
