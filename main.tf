@@ -36,4 +36,4 @@ resource "aws_instance" "small_server_project" {
   subnet_id              = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.main.id]
   tags = { Name = "small-server-project" }
-}-
+}
